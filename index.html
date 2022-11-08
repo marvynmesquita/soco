@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <title>Socó</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI Pro -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="body" class="border-0">
+      <div class="navbar navbar-inverse navbar-embossed navbar-static-top border-0" style="margin-bottom: 0;">
+        <a href="#" class="navbar-brand"> <img src="images/socó_logo.png" class="nav-item" height="110%" style="margin-bottom: 10px;"> </a>
+          <form class="navbar-form form-inline my-2 my-lg-0" action="#" role="search" style="margin: 10px;">
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control" type="search" placeholder="Para onde você deseja ir?">
+                <span class="input-group-btn">
+                <button type="submit" class="btn"><span class="fui-search"></span></button>
+                </span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="map" class="border-0">
+          <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCDb9FTHmKWaL5bDQF3E_AhLUI7qAFRN_k&q=Saquarema+RJ" class="position-absolute border-0" width="100%" height="100%">
+          </iframe>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 4 requires Popper.js -->
+    <script src="https://unpkg.com/popper.js@1.14.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+
+    <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
+
+    <script src="scripts/flat-ui.js"></script>
+
+  </body>
+</html>
