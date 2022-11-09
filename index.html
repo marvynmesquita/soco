@@ -29,8 +29,8 @@
   <body>
     <div id="body" class="border-0">
       <div class="navbar navbar-inverse navbar-embossed navbar-static-top border-0" style="margin-bottom: 0;">
-        <a href="#" class="navbar-brand"> <img src="images/socó_logo.png" class="nav-item" height="110%" style="margin-bottom: 10px;"> </a>
-          <form class="navbar-form form-inline my-2 my-lg-0" action="#" role="search" style="margin: 10px;">
+        <a href="index.html" class="navbar-brand"> <img src="images/socó_logo.png" class="nav-item" style="margin-bottom: 10px; height: 110%; padding: auto;"> </a>
+        <form class="navbar-form form-inline my-2 my-lg-0" action="#" role="search" style="margin: 10px; height: fit-content; width: fit-content;">
             <div class="form-group">
               <div class="input-group">
                 <input class="form-control" type="search" placeholder="Para onde você deseja ir?">
@@ -39,22 +39,35 @@
                 </span>
               </div>
             </div>
-          </form>
-        </div>
+        </form>
+        <div class="btn-group">
+          <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
+            <span class="fui-list"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right dropdown-menu-inverse" role="menu">
+            <li><a href="#">Quem somos</a></li>
+            <li><a href="#">O que é o socó</a></li>
+            <li><a href="#">A universidade</a></li>
+            <li><a href="#">Saquarema</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>  
       </div>
-      <!--div id="map" class="border-0">
-          <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCDb9FTHmKWaL5bDQF3E_AhLUI7qAFRN_k&q=Saquarema+RJ" class="position-absolute border-0" width="100%" height="100%">
-          </iframe>
-      </div-->
-      <div id="mapholder" class="border-0 alert position-absolute">
-        <button class="btn btn-default" onclick="getLocation()">Permitir Localização</button>
+      <div id="corpo" class="border-0 position-absolute align-self-lg-auto text-lg-center container-fluid" align="center" style="width:100%; height: 100%; margin: auto; padding: 10%;">
+        <big>
+        Por favor, para o correto funcionamento do aplicativo, permita a localização.<br>
+        Nenhum dado seu será coletado.<br>
+        <br>
+        <button class="btn btn-primary" onclick="getLocation()">Permitir localização</button>
+        </big>
       </div>
+      <button class="btn btn-primary position-fixed" onmouseover="" style="bottom: 10px; right: 10px;">Turistar <img src="images/icons/binocle.png" style="height: 30px; width: 30px;"></button>
     </div>
     
     <!-- Mapa -->
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyCDb9FTHmKWaL5bDQF3E_AhLUI7qAFRN_k"></script>
     <script>
-      var x=document.getElementById("mapholder");
+      var x=document.getElementById("corpo");
       function getLocation()
         {
         if (navigator.geolocation)
@@ -69,7 +82,7 @@
         var lat=position.coords.latitude;
         var lon=position.coords.longitude;
         var latlon=new google.maps.LatLng(lat, lon)
-        var mapholder=document.getElementById('mapholder')
+        var mapholder=document.getElementById('corpo')
         mapholder.style.height='100%';
         mapholder.style.width='100%';
       
@@ -79,8 +92,8 @@
         mapTypeControl:false,
         navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
         };
-        var map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
-        var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+        var map=new google.maps.Map(document.getElementById("corpo"),myOptions);
+        var marker=new google.maps.Marker({position:latlon,map:map,title:"Você está aqui!"});
         }
       
       function showError(error)
@@ -88,20 +101,20 @@
         switch(error.code) 
           {
           case error.PERMISSION_DENIED:
-            x.innerHTML="User denied the request for Geolocation."
+            x.innerHTML="O usuário negou a localização"
             break;
           case error.POSITION_UNAVAILABLE:
-            x.innerHTML="Location information is unavailable."
+            x.innerHTML="Localização não disponível"
             break;
           case error.TIMEOUT:
-            x.innerHTML="The request to get user location timed out."
+            x.innerHTML="A solicitação expirou"
             break;
           case error.UNKNOWN_ERROR:
-            x.innerHTML="An unknown error occurred."
+            x.innerHTML="Ocorreu um erro desconhecido"
             break;
           }
         }
-      </script>
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
